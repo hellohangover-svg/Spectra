@@ -1,0 +1,42 @@
+name: Spectra
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "26.0"
+targets:
+  Spectra:
+    type: application
+    platform: iOS
+    sources: [Spectra]
+    scheme:
+      testTargets: [SpectraTests]
+    info:
+      path: Spectra/Info.plist
+      properties:
+        CFBundleDisplayName: Spectra
+        NSMicrophoneUsageDescription: Spectra measures sound from the microphone to show its spectrum and level.
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    settings:
+      base:
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.spectra
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  SpectraTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [SpectraTests]
+    dependencies:
+      - target: Spectra
+    settings:
+      base:
+        SWIFT_VERSION: "5.0"
